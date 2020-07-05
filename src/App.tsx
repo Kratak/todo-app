@@ -1,8 +1,11 @@
 import React from 'react';
 
+import {dummy} from './components';
+
+
 function App() {
   return (
-    <div>test screen</div>
+    <div>{dummy} screen</div>
   );
 }
 
