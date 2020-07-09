@@ -1,9 +1,12 @@
 const colors = {
-  modalBackground: "#fcf7f0",
+  modalBackground: "#f6f3f3",
+  inputBackground: "#ffffff",
   tumbleweed: "#d8a48f",
   oldRose: "#bb8588",
   mediumChampagne: "#d6ce93",
-  borderColor: "#a3a380",
+  border: "#a3a380",
+  infoTipText: "#a3a380",
+  commonText: "#000000",
 };
 
 const media = {
@@ -12,7 +15,8 @@ const media = {
 };
 
 const compoundStyles = {
-  border: `solid ${colors.borderColor} thin`,
+  border: `solid ${colors.border} thin`,
+  borderRadius: "10px",
 };
 
 export const stylesConstans = {
