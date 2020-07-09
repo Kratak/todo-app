@@ -1,31 +1,40 @@
 import React from "react";
-import PaperBase from "@material-ui/core/Paper";
-import styled from "styled-components";
+import { LoginPaper } from "./login-paper-styled";
+import { LoginTexField } from "./login-text-field-styled";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 
-import { stylesConstans } from "components/shared/utils";
+export const Login = () => {
+  const isValid = true;
+  const errorMessage = "Incorrect entry.";
+  const helperText = "*Field Required";
+  const loginLabel = "Login";
+  const passwordLabel = "Password";
 
-const { media, colors, compoundStyles } = stylesConstans;
+  const helperTextMessage = isValid ? helperText : errorMessage;
 
-const Paper = styled(PaperBase)`
-  && {
-    align-self: center;
-    width: 90vw;
-    min-height: 200px;
-    transform: translateX(-50%);
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    background-color: ${colors.modalBackground};
-    border: ${compoundStyles.border};
-
-    ${media.tabletOnly} {
-      width: 400px;
-    }
-
-    ${media.desktopOnly} {
-      width: 300px;
-    }
-  }
-`;
-
-export const Login = () => <Paper>Login</Paper>;
+  return (
+    <LoginPaper>
+      <LoginTexField
+        error={!isValid}
+        label={loginLabel}
+        helperText={helperTextMessage}
+      />
+      <LoginTexField
+        error={!isValid}
+        label={passwordLabel}
+        helperText={helperTextMessage}
+        lastOfType
+      />
+      <Grid container>
+        <Grid
+          item
+          xs={12}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <Button variant={"contained"}>Login</Button>
+        </Grid>
+      </Grid>
+    </LoginPaper>
+  );
+};
