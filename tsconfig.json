@@ -20,9 +20,6 @@
     "jsx": "react",
     "outDir": "./dist/",
     "noImplicitAny": true,
-    "paths": {
-      "@*": ["*"]
-    },
     "baseUrl": "src"
   },
   "include": [
