@@ -5,7 +5,7 @@ import { stylesConstans } from "components/shared/utils";
 
 const { media, colors, compoundStyles } = stylesConstans;
 
-export const LoginPaper = styled(PaperBase)`
+export const Paper = styled(PaperBase)`
   && {
     box-sizing: border-box;
     padding: 20px;
