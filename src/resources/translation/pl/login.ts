@@ -1,5 +1,5 @@
-import { ILoginMessages, ELoginMessagesKeys } from "../keys";
+import { ILoginMessages } from "../keys/";
 
 export const loginMessages: ILoginMessages = {
-  [ELoginMessagesKeys.LoginButton]: "Zaloguj",
+  login_button: "Zaloguj",
 };

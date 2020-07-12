@@ -4,14 +4,14 @@ import { useTranslation } from "react-i18next";
 import Grid from "@material-ui/core/Grid";
 
 import { staticRoutes } from "logics/router";
-import { ELoginMessagesKeys, ENamesSpaces } from "resources/translation/keys";
+import { loginMessagesKeys, ENamesSpaces } from "resources/translation/keys";
 
 import { Paper, TextField, GridItem, LoginButton } from "./styled";
 
 interface ILoginProps extends RouteComponentProps {}
 
 export const Login = (props: ILoginProps) => {
-  const { t } = useTranslation(ENamesSpaces.LoginMessage);
+  const { t: translation } = useTranslation(ENamesSpaces.LoginMessage);
 
   const isValid = true;
   const errorMessage = "Incorrect entry.";
@@ -45,7 +45,7 @@ export const Login = (props: ILoginProps) => {
         </GridItem>
         <GridItem>
           <LoginButton onClick={onLoginSubmit}>
-            {t(ELoginMessagesKeys.LoginButton)}
+            {translation(loginMessagesKeys.login_button)}
           </LoginButton>
         </GridItem>
       </Grid>
