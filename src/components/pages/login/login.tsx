@@ -1,11 +1,10 @@
 import React from "react";
 import { RouteComponentProps } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
 import { staticRoutes } from "logics/router";
 
-import { Paper, TextField, GridItem } from "./styled";
+import { Paper, TextField, GridItem, LoginButton } from "./styled";
 
 interface ILoginProps extends RouteComponentProps {}
 
@@ -15,11 +14,11 @@ export const Login = (props: ILoginProps) => {
   const helperText = "*Field Required";
   const loginLabel = "Login";
   const passwordLabel = "Password";
-  const loginText = "Login";
+  const loginText = "Sign in";
 
   const helperTextMessage = isValid ? helperText : errorMessage;
 
-  const onLogin = () => {
+  const onLoginSubmit = () => {
     props.history.push(staticRoutes.list);
   };
 
@@ -42,9 +41,7 @@ export const Login = (props: ILoginProps) => {
           />
         </GridItem>
         <GridItem>
-          <Button variant={"contained"} onClick={onLogin}>
-            {loginText}
-          </Button>
+          <LoginButton onClick={onLoginSubmit}>{loginText}</LoginButton>
         </GridItem>
       </Grid>
     </Paper>
