@@ -25,7 +25,8 @@ export const Paper = styled(PaperBase)`
     }
 
     ${media.desktopOnly} {
-      width: 300px;
+      padding: 30px 40px;
+      width: 500px;
     }
   }
 `;
