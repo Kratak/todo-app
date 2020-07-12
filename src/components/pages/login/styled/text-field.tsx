@@ -6,24 +6,21 @@ import { StandardTextFieldProps } from "@material-ui/core/TextField/TextField";
 
 const { media, colors, compoundStyles } = stylesConstans;
 
-interface ICustomTextFieldProps {
-  lastOfType?: boolean;
+interface ICustomTextFieldProps extends StandardTextFieldProps {
+  $lastOfType?: boolean;
 }
-
-type TExtendedTextFieldProps = StandardTextFieldProps & ICustomTextFieldProps;
-
-export const LoginTexField = styled(TextFieldBase).attrs<
-  TExtendedTextFieldProps
->((props) => ({
-  variant: props.variant || "outlined",
-  defaultValue: props?.defaultValue || " ",
-}))<TExtendedTextFieldProps>`
+export const TextField = styled(TextFieldBase).attrs<ICustomTextFieldProps>(
+  (props) => ({
+    variant: props.variant || "outlined",
+    defaultValue: props?.defaultValue || " ",
+  }),
+)<ICustomTextFieldProps>`
   && {
-    width: 100%;
+    width: 90%;
     background-color: ${colors.inputBackground};
     margin: 15px 0;
     border-radius: ${compoundStyles.borderRadius};
-    ${(props) => props.lastOfType && "margin-bottom: 30px;"}
+    ${(props) => props.$lastOfType && "margin-bottom: 30px;"}
 
     input {
       border: ${compoundStyles.border};
@@ -47,11 +44,11 @@ export const LoginTexField = styled(TextFieldBase).attrs<
     }
 
     ${media.tabletOnly} {
-      width: 200px;
+      width: 300px;
     }
 
     ${media.desktopOnly} {
-      width: 200px;
+      width: 300px;
     }
   }
 `;

@@ -7,6 +7,10 @@ const colors = {
   border: "#a3a380",
   infoTipText: "#a3a380",
   commonText: "#000000",
+  green: "#86e3ce",
+  yellow: "#ffdd94",
+  red: "#fa897b",
+  white: "#ffffff",
 };
 
 const media = {

@@ -1,40 +1,49 @@
 import React from "react";
-import { LoginPaper } from "./login-paper-styled";
-import { LoginTexField } from "./login-text-field-styled";
-import Button from "@material-ui/core/Button";
+import { RouteComponentProps } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 
-export const Login = () => {
+import { staticRoutes } from "logics/router";
+
+import { Paper, TextField, GridItem, LoginButton } from "./styled";
+
+interface ILoginProps extends RouteComponentProps {}
+
+export const Login = (props: ILoginProps) => {
   const isValid = true;
   const errorMessage = "Incorrect entry.";
   const helperText = "*Field Required";
   const loginLabel = "Login";
   const passwordLabel = "Password";
+  const loginText = "Sign in";
 
   const helperTextMessage = isValid ? helperText : errorMessage;
 
+  const onLoginSubmit = () => {
+    props.history.push(staticRoutes.list);
+  };
+
   return (
-    <LoginPaper>
-      <LoginTexField
-        error={!isValid}
-        label={loginLabel}
-        helperText={helperTextMessage}
-      />
-      <LoginTexField
-        error={!isValid}
-        label={passwordLabel}
-        helperText={helperTextMessage}
-        lastOfType
-      />
+    <Paper>
       <Grid container>
-        <Grid
-          item
-          xs={12}
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <Button variant={"contained"}>Login</Button>
-        </Grid>
+        <GridItem>
+          <TextField
+            error={!isValid}
+            label={loginLabel}
+            helperText={helperTextMessage}
+          />
+        </GridItem>
+        <GridItem>
+          <TextField
+            error={!isValid}
+            label={passwordLabel}
+            helperText={helperTextMessage}
+            $lastOfType
+          />
+        </GridItem>
+        <GridItem>
+          <LoginButton onClick={onLoginSubmit}>{loginText}</LoginButton>
+        </GridItem>
       </Grid>
-    </LoginPaper>
+    </Paper>
   );
 };
