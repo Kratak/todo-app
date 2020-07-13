@@ -4,7 +4,10 @@ import { useTranslation } from "react-i18next";
 import Grid from "@material-ui/core/Grid";
 
 import { staticRoutes } from "logics/router";
-import { loginMessagesKeys, ENamesSpaces } from "resources/translation/keys";
+import {
+  loginMessagesKeys as keys,
+  ENamesSpaces,
+} from "resources/translation/keys";
 
 import { Paper, TextField, GridItem, LoginButton } from "./styled";
 
@@ -14,12 +17,14 @@ export const Login = (props: ILoginProps) => {
   const { t: translation } = useTranslation(ENamesSpaces.LoginMessage);
 
   const isValid = true;
-  const errorMessage = "Incorrect entry.";
-  const helperText = "*Field Required";
-  const loginLabel = "Login";
-  const passwordLabel = "Password";
 
-  const helperTextMessage = isValid ? helperText : errorMessage;
+  const loginHelperTextMessage = isValid
+    ? "*" + translation(keys.info_messages.field_required)
+    : translation(keys.alerts.unknown_login);
+
+  const passwordHelperTextMessage = isValid
+    ? "*" + translation(keys.info_messages.field_required)
+    : translation(keys.alerts.unknown_login);
 
   const onLoginSubmit = () => {
     props.history.push(staticRoutes.list);
@@ -31,21 +36,21 @@ export const Login = (props: ILoginProps) => {
         <GridItem>
           <TextField
             error={!isValid}
-            label={loginLabel}
-            helperText={helperTextMessage}
+            label={translation(keys.labels.login)}
+            helperText={loginHelperTextMessage}
           />
         </GridItem>
         <GridItem>
           <TextField
             error={!isValid}
-            label={passwordLabel}
-            helperText={helperTextMessage}
+            label={translation(keys.labels.password)}
+            helperText={passwordHelperTextMessage}
             $lastOfType
           />
         </GridItem>
         <GridItem>
           <LoginButton onClick={onLoginSubmit}>
-            {translation(loginMessagesKeys.login_button)}
+            {translation(keys.login_button)}
           </LoginButton>
         </GridItem>
       </Grid>
