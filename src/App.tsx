@@ -4,6 +4,8 @@ import { StylesProvider } from "@material-ui/core/styles";
 
 import { staticRoutes } from "logics/router";
 
+import "./i18n";
+
 import { EditTask, List, Login, NotFound } from "components/pages";
 
 function App() {
@@ -13,13 +15,13 @@ function App() {
         <Router>
           <Switch>
             <Route
-              children={Login}
+              component={Login}
               exact
               path={[staticRoutes.home, staticRoutes.login]}
             />
-            <Route children={List} exact path={staticRoutes.list} />
-            <Route children={EditTask} exact path={staticRoutes.edit} />
-            <Route children={NotFound} />
+            <Route component={List} exact path={staticRoutes.list} />
+            <Route component={EditTask} exact path={staticRoutes.edit} />
+            <Route component={NotFound} />
           </Switch>
         </Router>
       </StylesProvider>
