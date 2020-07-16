@@ -12,7 +12,7 @@ interface ICustomTextFieldProps extends StandardTextFieldProps {
 export const TextField = styled(TextFieldBase).attrs<ICustomTextFieldProps>(
   (props) => ({
     variant: props.variant || "outlined",
-    defaultValue: props?.defaultValue || " ",
+    type: props.type || "text",
   }),
 )<ICustomTextFieldProps>`
   && {
