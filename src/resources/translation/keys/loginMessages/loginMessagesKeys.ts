@@ -3,7 +3,7 @@ import { ILoginMessages } from "./interface";
 export const loginMessagesKeys: ILoginMessages = {
   alerts: {
     empty_field: "alerts.empty_field",
-    minimum_four_charts: "alerts.minimum_four_charts",
+    minimum_charts: "alerts.minimum_charts",
     unknown_login: "alerts.unknown_login",
     wrong_password: "alerts.wrong_password",
   },

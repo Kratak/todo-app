@@ -1,7 +1,7 @@
 export interface ILoginMessages {
   alerts: {
     empty_field: string;
-    minimum_four_charts: string;
+    minimum_charts: string;
     unknown_login: string;
     wrong_password: string;
   };
