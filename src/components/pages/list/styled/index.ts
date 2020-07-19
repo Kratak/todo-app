@@ -1,4 +1,4 @@
-export * from "./login-button";
+export * from "./logout-button";
 export * from "./paper";
 export * from "./text-field";
 
