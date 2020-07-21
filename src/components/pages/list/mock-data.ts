@@ -1,4 +1,5 @@
 import { baseLogin } from "staticLogin";
+import { generateUuid } from "logics/helpers";
 
 import {
   ECategoryColors,
@@ -7,25 +8,30 @@ import {
   ITodoItem,
 } from "./interfaces";
 
+const baseUserUUID = generateUuid();
+const officialUUID = generateUuid();
+const importantUUID = generateUuid();
+const personalUUID = generateUuid();
+
 export const todoItems: ITodoItem[] = [
   {
-    assigneeId: baseLogin,
-    categoryId: ECategoryColors.blue,
-    id: "1",
+    assigneeId: baseUserUUID,
+    categoryId: officialUUID,
+    id: generateUuid(),
     status: true,
     title: "1st todo",
   },
   {
-    assigneeId: baseLogin,
-    categoryId: ECategoryColors.red,
-    id: "2",
+    assigneeId: baseUserUUID,
+    categoryId: importantUUID,
+    id: generateUuid(),
     status: false,
     title: "2nd todo",
   },
   {
-    assigneeId: baseLogin,
-    categoryId: ECategoryColors.green,
-    id: "3",
+    assigneeId: baseUserUUID,
+    categoryId: personalUUID,
+    id: generateUuid(),
     status: false,
     title: "3nd todo",
   },
@@ -34,7 +40,7 @@ export const todoItems: ITodoItem[] = [
 export const assignees: IAssignee[] = [
   {
     email: baseLogin + "@gmail.com",
-    id: baseLogin,
+    id: baseUserUUID,
     name: baseLogin,
   },
 ];
@@ -42,17 +48,17 @@ export const assignees: IAssignee[] = [
 export const categories: ITodoCategory[] = [
   {
     color: ECategoryColors.blue,
-    id: ECategoryColors.blue,
+    id: officialUUID,
     name: "Official",
   },
   {
     color: ECategoryColors.red,
-    id: ECategoryColors.red,
+    id: importantUUID,
     name: "Important",
   },
   {
     color: ECategoryColors.green,
-    id: ECategoryColors.green,
+    id: personalUUID,
     name: "Personal",
   },
 ];
